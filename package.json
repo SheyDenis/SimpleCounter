@@ -1,0 +1,25 @@
+{
+    "author": "denis.sheyer@gmail.com",
+    "dependencies": {},
+    "keywords": [],
+    "name": "simplecounter",
+    "pebble": {
+        "displayName": "SimpleCounter",
+        "enableMultiJS": true,
+        "messageKeys": [],
+        "projectType": "native",
+        "resources": {
+            "media": []
+        },
+        "sdkVersion": "3",
+        "targetPlatforms": [
+            "aplite",
+            "basalt"
+        ],
+        "uuid": "2efa0f9a-ca06-4df2-a338-b67f4a84ccfb",
+        "watchapp": {
+            "watchface": false
+        }
+    },
+    "version": "1.0.0"
+}
