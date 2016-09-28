@@ -1,5 +1,6 @@
 #include <pebble.h>
 #define KEY_CNT 0
+#define SCREEN_WIDTH 144
 
 static Window *main_window;
 static TextLayer *plus_layer;
@@ -75,7 +76,7 @@ void main_window_load(Window *window){
 	layer_add_child(window_get_root_layer(window), text_layer_get_layer(plus_layer));
 	text_layer_set_text(plus_layer, "+1");
 	
-	count_layer = text_layer_create(GRect(0, 72, 140, 35));
+	count_layer = text_layer_create(GRect(0, 72, SCREEN_WIDTH / 2, 35));
 	text_layer_set_background_color(count_layer, GColorWhite);
 	text_layer_set_text_color(count_layer, GColorBlack);
 	text_layer_set_font(count_layer, fonts_get_system_font(FONT_KEY_GOTHIC_28_BOLD));
@@ -217,8 +218,12 @@ void updateCnt(){
 	
 	strcpy(buffer_cnt, tmpBuffer);
 	
-	text_layer_set_text(count_layer, buffer_cnt);
+	text_layer_set_text(count_layer, buffer_cnt);;
+	GSize tmpsize = text_layer_get_content_size(count_layer);
+	tmpsize.w = (tmpsize.w / 2) + (SCREEN_WIDTH / 2);
+	text_layer_set_size(count_layer,tmpsize);
 	persist_write_int(KEY_CNT,cnt);
+	
 	
 }
 
